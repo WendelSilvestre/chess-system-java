@@ -46,8 +46,8 @@ public class Board {
 		piece.position = position;
 	}
 	
-	private boolean positionExists(int row, int Column) {
-		return row >= 0 && row < rows && Column >= 0 && Column < columns;
+	private boolean positionExists(int row, int column) {
+		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}
 	
 	public boolean positionExists(Position Position) {
@@ -55,7 +55,7 @@ public class Board {
 	}
 	
 	public boolean thereIsAPiece(Position position) {
-		if (thereIsAPiece(position)) {
+		if (!positionExists(position)) {
 			throw new BoardException("Ja contém uma peça na posição: " + position);
 		}
 		return piece(position) != null;
